@@ -1,0 +1,209 @@
+specifications:
+  units: m
+
+rink:
+  width: 60.0          # IIHF length (m)
+  height: 30.0         # IIHF width (m) - common championship size
+  corner_radius: 8.5   # IIHF corner radius range includes 8.5 m
+  boards_width: 0.30   # display-only
+  ice_color: !scheme ice
+  boards_color: !scheme outline
+
+ice_features:
+  # --- Goal frame / net at the goal line ---
+  - name: net
+    geometry: Net
+    position: [26.0, 0.0]          # goal line is 4 m from end boards => x = 30 - 4 = 26
+    opening_width: 1.83            # IIHF goal opening (m)
+    corner_radius: 0.4572
+    max_width: 2.2350984
+    max_depth: 1.1173968
+    color: !scheme net
+    mirror: length
+
+  - name: net_outline
+    geometry: NetOutline
+    position: [26.0, 0.0]
+    opening_width: 1.83
+    corner_radius: 0.4572
+    max_width: 2.2350984
+    max_depth: 1.1173968
+    linewidth: 0.05
+    color: !scheme outline
+    mirror: length
+
+  # --- Crease: keep your NCAA crease geometry, but in metres ---
+  - name: crease_paint
+    geometry: CreaseNCAA
+    position: [26.0, 0.0]
+    radius: 1.8288
+    color: !scheme crease
+    mirror: length
+
+  - name: crease_outline
+    geometry: CreaseOutlineNCAA
+    position: [26.0, 0.0]
+    radius: 1.8288
+    linewidth: 0.05
+    color: !scheme red
+    mirror: length
+
+  # --- Centre ice: IIHF sizes ---
+  - name: center_line
+    geometry: VLine
+    x_pos: 0.0
+    linewidth: 0.30                # IIHF centre line width
+    color: !scheme red
+    mirror: none
+
+  - name: center_faceoff_location
+    geometry: RinkCircle
+    position: [0.0, 0.0]
+    radius: 0.15                   # centre spot is 30 cm diameter => 0.15 m radius
+    color: !scheme blue
+    mirror: none
+
+  - name: faceoff_circle
+    geometry: RinkCircleOutline
+    position: [0.0, 0.0]
+    radius: 4.50                   # IIHF centre circle radius
+    linewidth: 0.05
+    color: !scheme blue
+    mirror: none
+
+  # --- Lines: IIHF placements ---
+  - name: blue_line
+    geometry: VLine
+    x_pos: 8.6667                  # blue lines divide distance between goal lines into 3 equal parts
+    linewidth: 0.30                # IIHF blue line width
+    color: !scheme blue
+    mirror: length
+
+  - name: goal_line
+    geometry: VLine
+    x_pos: 26.0                    # 4.0 m from end boards
+    linewidth: 0.05                # IIHF goal line width
+    color: !scheme red
+    mirror: length
+
+  # --- Neutral-zone faceoff spots (IIHF) ---
+  - name: neutral_zone_faceoff_spot
+    geometry: FaceoffCircle
+    position: [7.1667, 7.0]        # 1.5 m from blue line (8.6667-1.5), y=±7.0 (14.0 m apart)
+    radius: 0.30                   # 60 cm diameter spot
+    thickness: 0.05
+    inside_width: 0.3557           # keep your existing style detail
+    color: !scheme red
+    mirror: both
+
+  # --- End-zone faceoff spots (IIHF) ---
+  - name: offensive_zone_faceoff_spot
+    geometry: FaceoffCircle
+    position: [20.0, 7.0]          # 6.0 m from goal line: 26 - 6 = 20, y=±7.0
+    radius: 0.30
+    thickness: 0.05
+    inside_width: 0.3557
+    color: !scheme red
+    mirror: both
+
+  - name: offensive_zone_faceoff_circle
+    geometry: ProngedFaceoffCircle
+    position: [20.0, 7.0]
+    radius: 4.50
+    linewidth: 0.05
+    prong_lengths: 0.6096
+    prong_linewidth: 0.05
+    dist_between_prongs: 0.9144
+    color: !scheme red
+    mirror: both
+
+  - name: offensive_zone_faceoff_L_accents
+    geometry: FaceoffCircleLAccents
+    position: [20.0, 7.0]
+    offset: [0.6096, 0.2286]
+    lengthwise_length: 1.2192
+    widthwise_length: 0.9144
+    linewidth: 0.05
+    color: !scheme red
+    mirror: both
+
+  # --- Goalkeeper restricted area (IIHF trapezoid) ---
+  - name: trapezoid
+    geometry: Trapezoid
+    position: [26.0, 0.0]
+    near_width: 6.80               # along goal line
+    far_width: 8.60                # along end boards
+    length: 4.0                    # goal line to end boards
+    linewidth: 0.05
+    color: !scheme red
+    mirror: length
+
+  - name: posts
+    geometry: Posts
+    position: [26.0, 0.0]
+    inside_width: 1.83
+    tube_radius: 0.025             # 5 cm diameter posts => 2.5 cm radius
+    color: !scheme outline
+    mirror: length
+
+  # --- Officials crease (IIHF) ---
+  - name: referee_circle
+    geometry: RinkCircleOutline
+    position: [0.0, -15.0]         # at the bottom edge of the ice (display choice)
+    radius: 3.0
+    linewidth: 0.05
+    color: !scheme red
+    mirror: none
+
+other_features:
+  # These are "display/arena" elements; keep your original layout style but in metres
+  - name: penalty_box
+    geometry: RinkBox
+    position: [3.3528, -15.9144]
+    box_width: 3.048
+    box_height: 1.2192
+    color: !scheme penalty_box
+    mirror: length
+
+  - name: penalty_box_outline
+    geometry: RinkBoxOutline
+    position: [3.3528, -15.9144]
+    box_width: 3.048
+    box_height: 1.2192
+    linewidth: 0.1524
+    color: !scheme outline
+    mirror: length
+
+  - name: bench
+    geometry: RinkBox
+    position: [3.9624, 15.9144]
+    box_width: 7.3152
+    box_height: 1.2192
+    color: !scheme bench
+    mirror: length
+
+  - name: bench_outline
+    geometry: RinkBoxOutline
+    position: [3.9624, 15.9144]
+    box_width: 7.3152
+    box_height: 1.2192
+    linewidth: 0.1524
+    color: !scheme outline
+    mirror: length
+
+  - name: scorekeeper_box
+    geometry: RinkBox
+    position: [0.0, -15.9144]
+    box_width: 3.048
+    box_height: 1.2192
+    color: !scheme bench
+    mirror: none
+
+  - name: scorekeeper_box_outline
+    geometry: RinkBoxOutline
+    position: [0.0, -15.9144]
+    box_width: 3.048
+    box_height: 1.2192
+    linewidth: 0.1524
+    color: !scheme outline
+    mirror: none

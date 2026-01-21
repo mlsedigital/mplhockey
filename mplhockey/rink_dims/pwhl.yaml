@@ -1,0 +1,208 @@
+specifications:
+  units: ft
+
+rink:
+  width: 200          # Width of the rink (ft)
+  height: 85          # Height of the rink (ft)
+  corner_radius: 28   # Corner radius for rounded corners
+  boards_width: 1     # width of the boards (mostly for display purposes)
+  ice_color: !scheme ice
+  boards_color: !scheme outline
+
+ice_features:
+  - name: net
+    geometry: Net
+    position: [89.0, 0.0]
+    opening_width: 6.0
+    corner_radius: 1.5
+    max_width: 7.333
+    max_depth: 3.666
+    color: !scheme net
+    mirror: length
+  
+  - name: net_outline
+    geometry: NetOutline
+    position: [89.0, 0.0]
+    opening_width: 6.0
+    corner_radius: 1.5
+    max_width: 7.333
+    max_depth: 3.666
+    linewidth: 0.166
+    color: !scheme outline
+    mirror: length
+    
+  - name: crease_paint
+    geometry: CreaseNHL
+    position: [89.0, 0.0]
+    rect_width: 8.0
+    rect_height: 4.47
+    arc_radius: 6.0
+    color: !scheme crease
+    mirror: length
+
+  - name: faceoff_circle
+    geometry: RinkCircleOutline
+    position: [0.0, 0.0]
+    radius: 15.0
+    linewidth: 0.3333
+    color: !scheme red
+    mirror: none
+
+  - name: center_line
+    geometry: VLine           # vertical line
+    x_pos: 0.0
+    linewidth: 1.0            # one foot in width
+    color: !scheme red          # Red
+    mirror: none
+    
+  - name: center_faceoff_location
+    geometry: RinkCircle
+    position: [0.0, 0.0]      # Center of the rink
+    radius: 0.5               # One foot in diameter
+    color: !scheme blue          # Dark blue
+    mirror: none              # Do not mirror
+
+  - name: blue_line
+    geometry: VLine
+    x_pos: 25
+    linewidth: 1.0
+    color: !scheme blue
+    mirror: length
+  
+  - name: goal_line
+    geometry: VLine
+    x_pos: 89
+    linewidth: 0.1667
+    color: !scheme red
+    mirror: length
+  
+  - name: neutral_zone_faceoff_spot
+    geometry: FaceoffCircle
+    position: [20.0, 22.0]
+    radius: 1.0
+    thickness: 0.1667
+    inside_width: 1.167
+    color: !scheme red
+    mirror: both
+  
+  - name: offensive_zone_faceoff_spot
+    geometry: FaceoffCircle
+    position: [69.0, 22.0]
+    radius: 1.0
+    thickness: 0.1667
+    inside_width: 1.167
+    color: !scheme red
+    mirror: both
+
+  - name: offensive_zone_faceoff_circle
+    geometry: ProngedFaceoffCircle
+    position: [69.0, 22.0]
+    radius: 15.0
+    linewidth: 0.166
+    prong_lengths: 2.0
+    prong_linewidth: 0.166
+    dist_between_prongs: 3.0
+    color: !scheme red
+    mirror: both
+
+  - name: offensive_zone_faceoff_L_accents
+    geometry: FaceoffCircleLAccents
+    position: [69.0, 22.0]
+    offset: [2.0, 0.75]
+    lengthwise_length: 4.0
+    widthwise_length: 3.0
+    linewidth: 0.166
+    color: !scheme red
+    mirror: both
+
+  - name: crease_outline
+    geometry: CreaseNHLOutline
+    position: [89.0, 0.0]
+    rect_width: 8.0
+    rect_height: 4.47
+    accent_height: 4.0
+    accent_length: 0.4166
+    linewidth: 0.166
+    color: !scheme red
+    mirror: length
+
+  - name: trapezoid
+    geometry: Trapezoid
+    position: [89.0, 0.0]
+    near_width: 22
+    far_width: 28
+    length: 11
+    linewidth: 0.166
+    color: !scheme red
+    mirror: length
+
+  - name: posts
+    geometry: Posts
+    position: [89.0, 0.0]
+    inside_width: 6.0
+    tube_radius: 0.0833
+    color: !scheme outline
+    mirror: length
+  
+  - name: referee_circle
+    geometry: RinkCircleOutline
+    position: [0.0, -42.5]
+    radius: 5.0
+    linewidth: 0.166
+    color: !scheme red
+    mirror: none
+    
+
+
+  
+other_features:
+  - name : penalty_box
+    geometry: RinkBox
+    position: [11.0, -45.5]
+    box_width: 10.0
+    box_height: 4.0
+    color: !scheme penalty_box
+    mirror: length
+  
+  - name : penalty_box_outline
+    geometry: RinkBoxOutline
+    position: [11.0, -45.5]
+    box_width: 10.0
+    box_height: 4.0
+    linewidth: 0.5
+    color: !scheme outline
+    mirror: length
+  
+  - name : bench
+    geometry: RinkBox
+    position: [13.0, 45.5]
+    box_width: 24.0
+    box_height: 4.0
+    color: !scheme bench
+    mirror: length
+  
+  - name : bench_outline
+    geometry: RinkBoxOutline
+    position: [13.0, 45.5]
+    box_width: 24.0
+    box_height: 4.0
+    linewidth: 0.5
+    color: !scheme outline
+    mirror: length
+  
+  - name : scorekeeper_box
+    geometry: RinkBox
+    position: [0.0, -45.5]
+    box_width: 10.0
+    box_height: 4.0
+    color: !scheme bench
+    mirror: none
+  
+  - name : scorekeeper_box_outline 
+    geometry: RinkBoxOutline
+    position: [0.0, -45.5]
+    box_width: 10.0
+    box_height: 4.0
+    linewidth: 0.5
+    color: !scheme outline
+    mirror: none

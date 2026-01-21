@@ -1,0 +1,29 @@
+[project]
+name = "mplhockey"
+version = "0.3.0"
+description = ""
+authors = [
+    { name = "Jeffery Barrett", email = "jeff.barrett@mlse.com" }
+]
+readme = "README.md"
+requires-python = ">=3.9"
+
+dependencies = [
+    "matplotlib>=3.9.0,<4",
+    "shapely>=2.0.7,<3",
+    "numpy>=1.26.4",
+    "pyyaml>=6.0.3",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[dependency-groups]
+dev = [
+    "pytest-mpl>=0.18.0",
+]
+
+
+[tool.pytest.ini_options]
+addopts = "--mpl"

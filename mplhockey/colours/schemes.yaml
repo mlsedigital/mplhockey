@@ -1,0 +1,46 @@
+schemes:
+  light:
+    colours:
+      ice: "#FFFFFF"
+      outline: "#999999"
+      red: "#FF0000"
+      blue: "#0000FF"
+      crease: "#ABDBE3"
+      net: '#FAFAFA'
+      penalty_box: '#FAFAFA'
+      bench: '#FAFAFA'
+
+  dark:
+    colours:
+      ice: "#0E1117"
+      outline: "#606060"
+      red: "#FF0000"
+      blue: "#0000FF"
+      crease: "#303030"
+      net: "#505050"
+      penalty_box: '#D3D3D3'
+      bench: '#A9A9A9'
+  
+  over-dark:
+    colours:
+      ice: "none"
+      outline: "#FAFAFA"
+      red: "#FAFAFA"
+      blue: "#FAFAFA"
+      crease: "none"
+      net: "none"
+      penalty_box: '#D3D3D3'
+      bench: '#A9A9A9'
+  
+  over-light:
+    colours:
+      ice: "none"
+      outline: "#202020"
+      red: "#202020"
+      blue: "#202020"
+      crease: "none"
+      net: "none"
+      penalty_box: '#D3D3D3'
+      bench: '#A9A9A9'
+
+
