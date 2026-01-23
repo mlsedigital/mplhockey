@@ -1,6 +1,6 @@
 [project]
 name = "mplhockey"
-version = "0.3.0"
+version = "1.0.0"
 description = ""
 authors = [
     { name = "Jeffery Barrett", email = "jeff.barrett@mlse.com" }
