@@ -6,11 +6,9 @@ from pathlib import Path
 from typing import Any, Mapping, Optional
 import yaml
 
-# ---------- core cached loader ----------
 
 
 def _default_schemes_path() -> Path:
-    # points at mplhockey/colours/schemes.yaml inside the package
     return files("mplhockey.colours").joinpath("schemes.yaml")
 
 
