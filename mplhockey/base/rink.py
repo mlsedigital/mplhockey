@@ -122,7 +122,7 @@ class Rink:
             1) fig : matplotlib figure
             2) ax : matplotlib axis
         """
-        if self.ax is not None:
+        if (ax is None) and (self.ax is not None):
             return None, self.ax
 
         if ax is None:
